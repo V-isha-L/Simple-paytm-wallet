@@ -66,7 +66,7 @@ accountRoute.post("/transfer", authMiddleware, async (req, res) => {
         });
     }
 
-    const { amount, to } = req.body;
+    const { amount, to } = result.data;
 
     // Start MongoDB session for transaction
     const session = await mongoose.startSession();

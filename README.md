@@ -1,80 +1,140 @@
-# 💸 Paytm Clone Backend
+# 💸 SimplePay Wallet
 
-A backend implementation of a Paytm-inspired wallet application built with **Node.js**, **Express.js**, and **MongoDB**.
+A full-stack digital wallet application inspired by Paytm, built while learning the MERN stack.
 
-The project focuses on learning backend development concepts including authentication, middleware, MongoDB transactions, REST APIs, and request validation.
+The project demonstrates complete user authentication, protected routes, wallet management, real-time user search, and secure money transfers using MongoDB transactions.
 
-> 🚧 **Status:** Backend completed. React frontend is currently under development.
+> 🚧 This project is built for learning purposes and is actively being improved.
 
 ---
 
-## Features
+## ✨ Features
+
+### Authentication
 
 - User Registration
+- User Login
 - JWT Authentication
-- Protected Routes
-- Authentication Middleware
-- User Profile Update
+- Protected API Routes
+- Protected Frontend Routes
+- Local Storage Authentication
+
+### Wallet
+
+- View Current Balance
+- Transfer Money
+- Atomic MongoDB Transactions
+- Balance Validation
+- Receiver Validation
+
+### User Management
+
 - Search Users
-- Wallet Balance API
-- Money Transfer using MongoDB Transactions
-- Request Validation with Zod
+- Update User Profile
+- Dynamic Dashboard
+
+### Frontend
+
+- React
+- React Router
+- Reusable Components
+- Axios API Integration
+- Responsive UI using Tailwind CSS
+
+### Backend
+
+- REST APIs
+- Express Middleware
+- MongoDB & Mongoose
+- Request Validation using Zod
+- JWT Authentication
+- MongoDB Transactions
 
 ---
 
-## Tech Stack
+## 🛠 Tech Stack
+
+### Frontend
+
+- React
+- React Router DOM
+- Tailwind CSS
+- Axios
+- Vite
+
+### Backend
 
 - Node.js
 - Express.js
 - MongoDB
 - Mongoose
-- JWT (jsonwebtoken)
+- JWT
 - Zod
 - dotenv
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```
-backend/
+paytm/
 │
-├── middlewares/
-│   └── authmiddleware.js
+├── backend/
+│   ├── middlewares/
+│   ├── routes/
+│   ├── db.js
+│   ├── config.js
+│   ├── index.js
+│   └── package.json
 │
-├── routes/
-│   ├── account.js
-│   ├── user.js
-│   └── index.js
+├── frontend/
+│   ├── src/
+│   │
+│   ├── components/
+│   │   ├── Appbar.jsx
+│   │   ├── Balance.jsx
+│   │   ├── BottomWarning.jsx
+│   │   ├── Heading.jsx
+│   │   ├── InputBox.jsx
+│   │   ├── SButton.jsx
+│   │   ├── SubHeading.jsx
+│   │   └── Users.jsx
+│   │
+│   ├── pages/
+│   │   ├── Signup.jsx
+│   │   ├── Signin.jsx
+│   │   ├── Dashboard.jsx
+│   │   └── SendMoney.jsx
+│   │
+│   ├── App.jsx
+│   └── main.jsx
 │
-├── db.js
-├── config.js
-├── index.js
-└── package.json
+└── README.md
 ```
 
 ---
 
-## API Endpoints
+## 🔗 API Endpoints
 
 ### User Routes
 
 | Method | Endpoint | Description |
 |---------|----------|-------------|
-| POST | `/api/v1/user/signup` | Register a new user |
-| PUT | `/api/v1/user/` | Update logged-in user |
-| GET | `/api/v1/user/bulk?filter=` | Search users |
+| POST | `/api/v1/user/signup` | Register User |
+| POST | `/api/v1/user/signin` | Login User |
+| PUT | `/api/v1/user` | Update Profile |
+| GET | `/api/v1/user/bulk?filter=` | Search Users |
 
 ### Account Routes
 
 | Method | Endpoint | Description |
 |---------|----------|-------------|
-| GET | `/api/v1/account/balance` | Get current balance |
-| POST | `/api/v1/account/transfer` | Transfer money |
+| GET | `/api/v1/account/balance` | Fetch Wallet Balance |
+| POST | `/api/v1/account/transfer` | Transfer Money |
 
 ---
 
-## Environment Variables
+## ⚙ Environment Variables
 
 Create a `.env` file inside the backend folder.
 
@@ -85,7 +145,7 @@ JWT_SECRET=your_secret_key
 
 ---
 
-## Installation
+## 🚀 Installation
 
 Clone the repository
 
@@ -93,55 +153,80 @@ Clone the repository
 git clone https://github.com/V-isha-L/Simple-paytm-wallet.git
 ```
 
-Go to the backend
+Go into the project
+
+```bash
+cd Simple-paytm-wallet
+```
+
+Install backend dependencies
 
 ```bash
 cd backend
-```
-
-Install dependencies
-
-```bash
 npm install
 ```
 
-Run the server
+Install frontend dependencies
+
+```bash
+cd ../frontend
+npm install
+```
+
+Run backend
 
 ```bash
 npm start
 ```
 
----
+Run frontend
 
-## Upcoming Features
-
-- React Frontend
-- User Sign In
-- Password Hashing with bcrypt
-- Transaction History
-- Improved Error Handling
-- Better UI/UX
+```bash
+npm run dev
+```
 
 ---
 
-## What I Learned
+## 📚 Concepts Practiced
 
-While building this project, I practiced:
-
-- Express Routing
-- MongoDB & Mongoose
+- REST API Design
+- React Component Architecture
+- React Router
+- State Management using Hooks
+- Axios
 - JWT Authentication
+- Protected Routes
 - Authentication Middleware
 - MongoDB Transactions
-- REST API Design
-- Request Validation with Zod
+- MongoDB Relationships
+- Mongoose
+- Zod Validation
 - Async/Await
-- Backend Project Structure
+- Folder Structure
+- Tailwind CSS
 
 ---
 
-## Author
+## 🚀 Planned Improvements
+
+- Password Hashing (bcrypt)
+- Debounced User Search
+- Transaction History
+- Better Error Handling
+- Toast Notifications
+- Loading Indicators
+- Better Form Validation
+- Route Guards
+- Unit Testing
+- Docker Support
+- Refresh Token Authentication
+
+---
+
+## 👨‍💻 Author
 
 **Vishal Singh**
 
-Backend project built while learning the MERN stack.
+Built while learning the MERN stack through hands-on development, debugging, and iterative improvements.
+
+This project is part of my journey toward becoming a Full Stack MERN Developer.
