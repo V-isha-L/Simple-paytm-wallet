@@ -1,7 +1,7 @@
-export default function Heading({label}) {
+export default function Heading({ label, align = "center" }) {
     return (
-        <div className="font-bold text-4xl pt-4">
+        <h1 className={`${align === "left" ? "text-left" : "text-center"} text-3xl font-black tracking-tight text-slate-950 sm:text-4xl`}>
             {label}
-        </div>
-    )
+        </h1>
+    );
 }

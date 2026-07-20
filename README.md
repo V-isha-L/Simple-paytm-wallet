@@ -1,47 +1,16 @@
 # SimplePay Wallet
 
-A full-stack digital wallet application inspired by Paytm, built while learning the MERN stack.
+SimplePay Wallet is a full-stack MERN digital wallet project prepared as an end-term practical project. It demonstrates user onboarding, JWT authentication, protected dashboard APIs, live wallet balance, searchable recipients, secure transfers, and transaction history.
 
-The project demonstrates user authentication, protected routes, wallet management, user search, and secure money transfers using MongoDB transactions.
+## Final Project Highlights
 
-> This project is built for learning purposes and is actively being improved.
-
-## Features
-
-### Authentication
-- User Registration
-- User Login
-- JWT Authentication
-- Protected API Routes
-- Protected Frontend Routes
-- Local Storage Authentication
-
-### Wallet
-- View Current Balance
-- Transfer Money
-- Atomic MongoDB Transactions
-- Balance Validation
-- Receiver Validation
-
-### User Management
-- Search Users
-- Update User Profile
-- Dynamic Dashboard
-
-### Frontend
-- React
-- React Router
-- Reusable Components
-- Axios API Integration
-- Responsive UI using Tailwind CSS
-
-### Backend
-- REST APIs
-- Express Middleware
-- MongoDB & Mongoose
-- Request Validation using Zod
-- JWT Authentication
-- MongoDB Transactions
+- Complete signup and signin flow with JWT-based sessions.
+- Passwords are stored as salted PBKDF2 hashes instead of plain text.
+- Authenticated dashboard shows the logged-in user, live balance, recipient search, and recent transactions.
+- Money transfers use MongoDB sessions/transactions so debit, credit, and transaction-log creation commit together.
+- Transfer validation prevents invalid receiver IDs, self-transfers, negative amounts, and over-limit requests.
+- User search excludes the logged-in user and searches by name or email.
+- Environment-based API and JWT configuration for easier local setup.
 
 ## Tech Stack
 
@@ -59,15 +28,19 @@ The project demonstrates user authentication, protected routes, wallet managemen
 - Mongoose
 - JWT
 - Zod
+- Node Crypto PBKDF2 password hashing
 - dotenv
 
 ## Project Structure
 
 ```text
-paytm/
+Simple-paytm-wallet/
 ├── backend/
 │   ├── middlewares/
 │   ├── routes/
+│   │   ├── account.js
+│   │   ├── index.js
+│   │   └── user.js
 │   ├── db.js
 │   ├── config.js
 │   ├── index.js
@@ -76,8 +49,10 @@ paytm/
 │   ├── src/
 │   │   ├── components/
 │   │   ├── pages/
+│   │   ├── api.js
 │   │   ├── App.jsx
 │   │   └── main.jsx
+│   └── package.json
 └── README.md
 ```
 
@@ -86,44 +61,45 @@ paytm/
 ### User Routes
 | Method | Endpoint | Description |
 |---|---|---|
-| POST | `/api/v1/user/signup` | Register User |
-| POST | `/api/v1/user/signin` | Login User |
-| PUT | `/api/v1/user` | Update Profile |
-| GET | `/api/v1/user/bulk?filter=` | Search Users |
+| POST | `/api/v1/user/signup` | Register a user and create wallet account |
+| POST | `/api/v1/user/signin` | Login user and return JWT |
+| GET | `/api/v1/user/me` | Fetch logged-in user profile |
+| PUT | `/api/v1/user` | Update logged-in user profile |
+| GET | `/api/v1/user/bulk?filter=` | Search recipients |
 
 ### Account Routes
 | Method | Endpoint | Description |
 |---|---|---|
-| GET | `/api/v1/account/balance` | Fetch Wallet Balance |
-| POST | `/api/v1/account/transfer` | Transfer Money |
+| GET | `/api/v1/account/balance` | Fetch wallet balance |
+| GET | `/api/v1/account/transactions` | Fetch recent credit/debit history |
+| POST | `/api/v1/account/transfer` | Transfer money atomically |
 
 ## Environment Variables
 
-Create a `.env` file inside the backend folder.
+Create a `.env` file inside the `backend` folder.
 
 ```env
 MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
+JWT_SECRET=your_long_random_secret_key
+```
+
+Optionally create a `.env` file inside the `frontend` folder.
+
+```env
+VITE_API_URL=http://localhost:3000/api/v1
 ```
 
 ## Installation
 
-Clone the repository
-
-```bash
-git clone https://github.com/V-isha-L/Simple-paytm-wallet.git
-cd Simple-paytm-wallet
-```
-
-Install backend dependencies
+Install and run the backend:
 
 ```bash
 cd backend
 npm install
-npm start
+node index.js
 ```
 
-Open a new terminal for frontend
+Open a new terminal, then install and run the frontend:
 
 ```bash
 cd frontend
@@ -131,37 +107,20 @@ npm install
 npm run dev
 ```
 
-## Concepts Practiced
+## Presentation Talking Points
 
-- REST API Design
-- React Component Architecture
-- React Router
-- State Management using Hooks
-- Axios
-- JWT Authentication
-- Protected Routes
-- Authentication Middleware
-- MongoDB Transactions
-- MongoDB Relationships
-- Mongoose
-- Zod Validation
-- Async/Await
-- Folder Structure
-- Tailwind CSS
+- Explain why MongoDB transactions are important for wallet transfers.
+- Show that password storage uses salted hashing rather than plain text.
+- Demonstrate signup, signin, dashboard balance, user search, transfer, and transaction history.
+- Mention API validation using Zod and route protection using JWT middleware.
 
 ## Planned Improvements
 
-- Password Hashing with bcrypt
-- Debounced User Search
-- Transaction History
-- Better Error Handling
-- Toast Notifications
-- Loading Indicators
-- Better Form Validation
-- Route Guards
-- Unit Testing
-- Docker Support
-- Refresh Token Authentication
+- Unit and integration tests
+- Docker Compose setup
+- Admin transaction analytics dashboard
+- Email/OTP verification
+- Deployment on Render/Vercel
 
 ## Author
 
