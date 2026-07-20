@@ -1,9 +1,7 @@
-
-
-export default function SubHeading({label}) {
+export default function SubHeading({ label }) {
     return (
-        <div className="text-xl pt-4 py-5 text-center text-wrap">
+        <p className="max-w-sm text-center text-sm leading-6 text-slate-500 sm:text-base">
             {label}
-        </div>
-    )
+        </p>
+    );
 }

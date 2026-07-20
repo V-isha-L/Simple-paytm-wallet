@@ -1,3 +1,7 @@
-const JWT_SECRET = "hakunamatata";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const JWT_SECRET = process.env.JWT_SECRET || "development-secret-change-before-deployment";
 
 export default JWT_SECRET;
