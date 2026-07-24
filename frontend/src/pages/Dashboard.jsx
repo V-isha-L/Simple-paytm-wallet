@@ -55,11 +55,9 @@ export default function Dashboard() {
                     <div>
                         <div className="text-sm font-bold uppercase tracking-[0.25em] text-blue-600">Wallet Dashboard</div>
                         <h1 className="mt-2 text-4xl font-black tracking-tight text-slate-950">Manage your money beautifully.</h1>
-                        <p className="mt-2 max-w-2xl text-slate-500">A polished practical-demo dashboard with live balance, secure recipient search, and transaction records.</p>
+                        <p className="mt-2 max-w-2xl text-slate-500">View your balance, securely find recipients, and keep track of your transactions.</p>
                     </div>
-                    <div className="rounded-2xl bg-white/80 px-5 py-3 text-sm font-bold text-slate-700 shadow-sm backdrop-blur">
-                        Demo Status: <span className="text-green-600">Ready</span>
-                    </div>
+                    <div className="rounded-2xl bg-white/80 px-5 py-3 text-sm font-bold text-slate-700 shadow-sm backdrop-blur">Secure wallet access</div>
                 </div>
 
                 {message && <div className="mb-4 rounded-2xl bg-red-50 p-4 font-medium text-red-700 shadow-sm">{message}</div>}
