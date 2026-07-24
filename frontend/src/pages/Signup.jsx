@@ -37,7 +37,7 @@ export default function Signup() {
                 <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-600 text-2xl font-black text-white shadow-lg shadow-blue-600/30">₹</div>
                 <div className="mt-5 flex flex-col items-center gap-3">
                     <Heading label="Create Wallet" />
-                    <SubHeading label="Register once, get demo balance instantly, and start presenting secure wallet transfers." />
+                    <SubHeading label="Create your account to start managing secure wallet transfers." />
                 </div>
                 <div className="mt-8 grid gap-4 sm:grid-cols-2">
                     <InputBox label="First Name" placeHolder="John" value={firstName} onchange={(e) => setFirstName(e.target.value)} />

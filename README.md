@@ -1,8 +1,8 @@
 # SimplePay Wallet
 
-SimplePay Wallet is a full-stack MERN digital wallet project prepared as an end-term practical project. It demonstrates user onboarding, JWT authentication, protected dashboard APIs, live wallet balance, searchable recipients, secure transfers, and transaction history.
+SimplePay Wallet is a full-stack MERN digital wallet application with user onboarding, JWT authentication, protected dashboard APIs, live wallet balance, searchable recipients, secure transfers, and transaction history.
 
-## Final Project Highlights
+## Highlights
 
 - Complete signup and signin flow with JWT-based sessions.
 - Passwords are stored as salted PBKDF2 hashes instead of plain text.
@@ -106,13 +106,6 @@ cd frontend
 npm install
 npm run dev
 ```
-
-## Presentation Talking Points
-
-- Explain why MongoDB transactions are important for wallet transfers.
-- Show that password storage uses salted hashing rather than plain text.
-- Demonstrate signup, signin, dashboard balance, user search, transfer, and transaction history.
-- Mention API validation using Zod and route protection using JWT middleware.
 
 ## Planned Improvements
 
